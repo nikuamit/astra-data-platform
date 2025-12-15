@@ -1,0 +1,18 @@
+app:
+  name: astra-data-platform
+  environment: dev
+
+spark:
+  master: local[*]
+  app_name: AstraDataPlatform
+  shuffle_partitions: 4
+
+storage:
+  base_path: data
+  bronze: data/bronze
+  silver: data/silver
+  gold: data/gold
+
+logging:
+  level: INFO
+  
