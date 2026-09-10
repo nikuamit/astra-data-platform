@@ -1,6 +1,6 @@
 platform:
   name: astra-data-platform
-  env: dev
+  env: dev  # dev | staging | prod
 
 spark:
   app_name: astra
@@ -9,8 +9,8 @@ spark:
     spark.sql.extensions: io.delta.sql.DeltaSparkSessionExtension
     spark.sql.catalog.spark_catalog: org.apache.spark.sql.delta.catalog.DeltaCatalog
     spark.sql.shuffle.partitions: "200"
-    spark.sql.adaptive.enabled: "true"
     spark.databricks.delta.schema.autoMerge.enabled: "true"
+    spark.sql.adaptive.enabled: "true"
 
 storage:
   base_path: s3a://astra-data-lake
@@ -30,7 +30,7 @@ kafka:
 
 data_quality:
   fail_on_error: false
-  alert_threshold: 0.05
+  alert_threshold: 0.05   # >5% bad rows → alert
 
 logging:
   level: INFO
