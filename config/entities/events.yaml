@@ -1,0 +1,24 @@
+entity: events
+dedup_keys: [event_id]
+dedup_order_col: _ingest_ts
+dq_rules:
+  - name: event_id_not_null
+    type: not_null
+    column: event_id
+  - name: user_id_not_null
+    type: not_null
+    column: user_id
+  - name: event_type_valid
+    type: accepted_values
+    column: event_type
+    params:
+      values: [page_view, click, purchase, signup, logout]
+  - name: amount_positive
+    type: range
+    column: amount
+    params:
+      min: 0
+      max: 1000000
+  - name: tenant_id_not_null
+    type: not_null
+    column: tenant_id

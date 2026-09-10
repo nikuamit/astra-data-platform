@@ -1,0 +1,37 @@
+platform:
+  name: astra-data-platform
+  env: dev
+
+spark:
+  app_name: astra
+  master: local[*]
+  configs:
+    spark.sql.extensions: io.delta.sql.DeltaSparkSessionExtension
+    spark.sql.catalog.spark_catalog: org.apache.spark.sql.delta.catalog.DeltaCatalog
+    spark.sql.shuffle.partitions: "200"
+    spark.sql.adaptive.enabled: "true"
+    spark.databricks.delta.schema.autoMerge.enabled: "true"
+
+storage:
+  base_path: s3a://astra-data-lake
+  bronze: /bronze
+  silver: /silver
+  gold: /gold
+  checkpoint: /checkpoints
+  quarantine: /quarantine
+
+kafka:
+  bootstrap_servers: localhost:9092
+  group_id: astra-consumer
+  auto_offset_reset: earliest
+  topics:
+    events: astra.events.raw
+    entities: astra.entities.raw
+
+data_quality:
+  fail_on_error: false
+  alert_threshold: 0.05
+
+logging:
+  level: INFO
+  format: json
