@@ -1,7 +1,7 @@
 [tool.ruff]
 line-length = 110
 target-version = "py311"
-select = ["E","F","W","I"]
+select = ["E", "F", "W", "I"]
 ignore = ["E501"]
 
 [tool.pytest.ini_options]
@@ -11,4 +11,4 @@ addopts = "-v --tb=short"
 
 [tool.coverage.run]
 source = ["."]
-omit = ["tests/*","**/__init__.py"]
+omit = ["tests/*", "**/__init__.py"]
