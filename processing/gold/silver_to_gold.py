@@ -10,12 +10,10 @@ Two modes:
 from __future__ import annotations
 
 import argparse
-from typing import Literal
 
 import pyspark.sql.functions as F
-from pyspark.sql import DataFrame
-from pyspark.sql.window import Window
 from delta.tables import DeltaTable
+from pyspark.sql import DataFrame
 
 from utils.config_loader import load_config
 from utils.delta_writer import write_delta

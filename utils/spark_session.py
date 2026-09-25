@@ -5,8 +5,9 @@ Centralised SparkSession factory driven by config/platform.yaml.
 
 from __future__ import annotations
 
-import yaml
 from pathlib import Path
+
+import yaml
 from pyspark.sql import SparkSession
 
 

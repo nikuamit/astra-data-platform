@@ -4,7 +4,6 @@ tests/unit/test_quality_engine.py
 
 import pytest
 from pyspark.sql import SparkSession
-import pyspark.sql.functions as F
 
 from dq.quality_engine import DQRule, QualityEngine, RuleType
 
@@ -63,7 +62,7 @@ def test_accepted_values_rule(spark):
 
 
 def test_fail_on_error_raises(spark):
-    df = spark.createDataFrame([(None,), (None,)], ["col"])
+    df = spark.createDataFrame([(None,), (None,)], "col: string")
     rule = DQRule(name="col_not_null", rule_type=RuleType.NOT_NULL, column="col")
     engine = QualityEngine(rules=[rule], fail_on_error=True, alert_threshold=0.0)
     with pytest.raises(ValueError, match="DQ rule"):

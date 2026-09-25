@@ -6,9 +6,10 @@ Loads and merges platform config; supports env-level overrides.
 from __future__ import annotations
 
 import os
-import yaml
-from pathlib import Path
 from functools import lru_cache
+from pathlib import Path
+
+import yaml
 
 
 @lru_cache(maxsize=1)

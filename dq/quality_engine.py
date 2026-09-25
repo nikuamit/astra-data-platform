@@ -8,8 +8,8 @@ Bad rows are quarantined; a summary metric is emitted per run.
 
 from __future__ import annotations
 
-from pyspark.sql import DataFrame
 import pyspark.sql.functions as F
+from pyspark.sql import DataFrame
 
 from dq.models import DQResult, DQRule, RuleType
 from utils.logger import get_logger

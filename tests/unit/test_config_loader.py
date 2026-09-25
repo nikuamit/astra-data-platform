@@ -2,7 +2,6 @@
 tests/unit/test_config_loader.py
 """
 
-import pytest
 from utils.config_loader import _deep_merge
 
 

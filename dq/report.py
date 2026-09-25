@@ -15,7 +15,6 @@ from pathlib import Path
 
 from dq.models import DQResult
 
-
 _HTML_TEMPLATE = """\
 <!DOCTYPE html>
 <html lang="en">

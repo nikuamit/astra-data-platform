@@ -57,9 +57,8 @@ class Pipeline:
 
 
 def build_batch_pipeline(entity: str) -> Pipeline:
-    from ingestion.batch.file_to_bronze import ingest
-    from processing.silver.bronze_to_silver import process as to_silver
     from processing.gold.silver_to_gold import build_aggregate
+    from processing.silver.bronze_to_silver import process as to_silver
 
     pipeline = Pipeline(name=f"{entity}_batch")
 
